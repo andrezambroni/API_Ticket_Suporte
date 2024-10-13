@@ -6,11 +6,10 @@ export async function jsonHandler(request, response) {
   }
 
   try {
-    resquest.body = JSON.parse(Buffers.concat(buffers).toString())
+    request.body = JSON.parse(Buffer.concat(buffers).toString())
   } catch (error) {
     request.body = null
   }
 
-  response.setHeader('Content-Type', 'application/json')
-
+  response.setHeader("Content-Type", "application/json")
 }
