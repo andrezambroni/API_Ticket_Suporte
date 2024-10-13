@@ -4,6 +4,7 @@ import { jsonHandler } from "./middlewares/jsonHandler.js"
 
 async function listener(request, response) {
     jsonHandler(request, response)
+    console.log(request.body)
 
 }
 
