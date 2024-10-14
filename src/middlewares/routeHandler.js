@@ -1,5 +1,8 @@
 // Importa as rotas do arquivo index.js
 import { routes } from "../routes/index.js"
+import { Databse } from "../database/database.js"
+
+const database = new Databse()
 
 // Função que lida com as rotas das requisições
 export function routeHandler(request, response) {
@@ -12,7 +15,7 @@ export function routeHandler(request, response) {
   // Se encontrar a rota correspondente
   if (route) {
     // Chama o controlador da rota passando a requisição e a resposta
-    return route.controller(request, response)
+    return route.controller({request, response})
   }
 
   // Se não encontrar a rota, retorna um erro 404 (não encontrado)
