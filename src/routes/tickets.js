@@ -1,17 +1,11 @@
 import { create } from "../controllers/tickets/create.js"
 import { index } from "../controllers/tickets/index.js"
 
-// Exporta uma constante chamada tickets que contém uma lista de rotas
 
 export const tickets = [
   {
-    // Define o método HTTP da rota como POST
     method: "POST",
-
-    // Define o caminho da rota como /tickets
     path: "/tickets",
-
-    // Define o controlador da rota, que é uma função que lida com a requisição e a resposta
     controller: create,
   },
   {
