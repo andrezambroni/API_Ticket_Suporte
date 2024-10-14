@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/andrezambroni/API_Ticket_Suporte/issues"
   },
-  "homepage": "https://github.com/andrezambroni/API_Ticket_Suporte#readme"
+  "homepage": "https://github.com/andrezambroni/API_Ticket_Suporte#readme",
+  "dependencies": {
+    "api_ticket": "file:"
+  }
 }
