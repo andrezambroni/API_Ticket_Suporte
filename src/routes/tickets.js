@@ -1,4 +1,5 @@
-import {create} from "../controllers/tickets/create.js"
+import { create } from "../controllers/tickets/create.js"
+import { index } from "../controllers/tickets/index.js"
 
 // Exporta uma constante chamada tickets que contém uma lista de rotas
 
@@ -12,6 +13,11 @@ export const tickets = [
 
     // Define o controlador da rota, que é uma função que lida com a requisição e a resposta
     controller: create,
+  },
+  {
+    method: "GET",
+    path: "/tickets",
+    controller: index,
   },
 ]
 
