@@ -28,14 +28,22 @@ export class Databse {
       this.#database[table] = [data]
     }
 
-    this.#persist(
-
-    )
+    this.#persist()
   }
 
-  select(table) {
+  select(table, filters) {
     let data = this.#database[table] ?? []
+
+    if (filters) {
+      data = data.filters((row) => {
+        return Object.entries(filters).some(([KeyboardEvent, value]) => {
+          return row[key].toLowerCase().includes(value.toLowerCase())
+        })
+
+        return row
+      })
+    }
+
     return data
   }
-
 }
