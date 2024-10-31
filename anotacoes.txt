@@ -1,0 +1,33 @@
+o caminho que uma requisição (request) e uma resposta (response) fazem no seu projeto:
+
+Servidor HTTP:
+
+O servidor HTTP é criado no arquivo server.js.
+Quando uma requisição é feita para o servidor, a função listener é chamada.
+A função listener chama dois middlewares: jsonHandler e routeHandler.
+Middleware jsonHandler:
+
+O middleware jsonHandler é responsável por processar a requisição e a resposta, provavelmente para lidar com JSON. O código específico não foi fornecido, mas ele é chamado primeiro na função listener.
+Middleware routeHandler:
+
+O middleware routeHandler é responsável por encontrar a rota correspondente à requisição e chamar a função controladora dessa rota.
+Ele importa as rotas do arquivo index.js e a classe Database do arquivo database.js.
+Ele procura uma rota que corresponda ao método e ao caminho da requisição.
+Se uma rota correspondente for encontrada, ele extrai os parâmetros da URL e os parâmetros de consulta, adiciona esses parâmetros à requisição e chama a função controladora da rota, passando a requisição, a resposta e o banco de dados.
+Se nenhuma rota correspondente for encontrada, ele retorna um erro 404.
+Rotas:
+
+As rotas são definidas no arquivo index.js, que provavelmente importa as rotas de outros arquivos, como tickets.js.
+Cada rota tem um método (GET, POST, etc.), um caminho (URL) e uma função controladora.
+Controladores:
+
+As funções controladoras das rotas estão localizadas na pasta tickets.
+Por exemplo, a rota POST /tickets chama a função create, a rota GET /tickets chama a função index, e assim por diante.
+Resumindo, o caminho que uma requisição e resposta faz no seu projeto é o seguinte:
+
+A requisição é recebida pelo servidor HTTP em server.js.
+A função listener chama o middleware jsonHandler para processar a requisição e a resposta.
+A função listener chama o middleware routeHandler para encontrar a rota correspondente e chamar a função controladora.
+O middleware routeHandler procura a rota correspondente nas rotas definidas em index.js.
+Se uma rota correspondente for encontrada, o middleware routeHandler chama a função controladora da rota, que está localizada na pasta tickets.
+A função controladora processa a requisição e envia a resposta.

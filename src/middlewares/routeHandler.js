@@ -1,15 +1,16 @@
+// o código está procurando uma rota que corresponda ao método (GET, POST, etc.) e ao caminho (URL) da requisição.
+// Se encontrar, ele chama a função controladora dessa rota.
+// Se não encontrar, ele retorna um erro 404, que significa que a página não foi encontrada.
 // Importa as rotas do arquivo index.js
+
 import { routes } from "../routes/index.js"
-import { Databse } from "../database/database.js"
+import { Database } from "../database/database.js"
 import { extractQueryParams } from "../utils/extractQueryParams.js"
 
-const database = new Databse()
-
+const database = new Database()
 
 export function routeHandler(request, response) {
-
   const route = routes.find((route) => {
-
     return route.method === request.method && route.path.test(request.url)
   })
 
@@ -21,13 +22,8 @@ export function routeHandler(request, response) {
     request.params = params
     request.query = query ? extractQueryParams(query) : {}
 
-
     return route.controller({ request, response, database })
   }
 
   return response.writeHead(404).end()
 }
-
-// o código está procurando uma rota que corresponda ao método (GET, POST, etc.) e ao caminho (URL) da requisição.
-// Se encontrar, ele chama a função controladora dessa rota.
-// Se não encontrar, ele retorna um erro 404, que significa que a página não foi encontrada.

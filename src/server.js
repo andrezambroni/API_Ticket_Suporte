@@ -3,6 +3,13 @@ import { jsonHandler } from "./middlewares/jsonHandler.js"
 import { routeHandler } from "./middlewares/routeHandler.js"
 
 
+const server = http.createServer(async (request, response) => {
+  await jsonHandler(request, response)
+
+  // Chama o routeHandler apenas após o corpo ser processado
+  routeHandler(request, response)
+})
+
 async function listener(request, response) {
 
   jsonHandler(request, response)

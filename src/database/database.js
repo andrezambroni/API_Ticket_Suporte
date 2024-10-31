@@ -2,7 +2,7 @@ import fs from "node:fs/promises"
 
 const DATABASE_PATH = new URL("db.json", import.meta.url)
 
-export class Databse {
+export class Database {
   //deixa privado o database apenas pode ser usado dentro dessa classe
   #database = {}
 
